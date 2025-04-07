@@ -1,8 +1,8 @@
 /* Variables CSS para colores y temas (Custom Properties) */
 :root {
-    --color-primario: #2c3e50;    /* Fondo oscuro */
+    --color-primario: #222222;    /* Fondo oscuro */
     --color-secundario: #ecf0f1;  /* Fondo claro */
-    --color-destacado: #e74c3c;   /* Rojo para énfasis */
+    --color-destacado: #169976;   /* Rojo para énfasis */
     --color-texto: #333;          /* Texto principal */
     --color-blanco: #fff;         /* Blanco */
 }
@@ -202,15 +202,22 @@ nav {
     gap: 4rem;
 }
 
-.item .numero {
+.contador .item .numero {
     display: block;
     font-size: 3rem;
-    animation: countUp 2s ease-out forwards;
+    animation: countUp 4s ease-out infinite;
+    opacity: 0;
 }
 
 @keyframes countUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 /* Testimonios en carrusel */
@@ -218,6 +225,7 @@ nav {
     max-width: 1200px;
     margin: 4rem auto;
     text-align: center;
+    overflow: hidden; /* Añadido para contener el carrusel */
 }
 
 .testimonios h2 {
@@ -227,13 +235,12 @@ nav {
 
 .carrusel {
     display: flex;
-    width: 300%; /* 100% por cada testimonio (3 testimonios = 300%) */
-    overflow: hidden;
-    animation: slide 12s infinite ease-in-out; /* 4s por testimonio */
+    width: 300%; /* Mantenemos el 300% para los 3 testimonios */
+    animation: slide 12s infinite ease-in-out;
 }
 
 .testimonio {
-    width: 33.33%; /* Cada testimonio ocupa 1/3 del total */
+    width: 33.33%; /* Cada testimonio es 1/3 del 300% */
     padding: 2rem;
     background: var(--color-secundario);
     border-radius: 10px;
@@ -262,10 +269,10 @@ nav {
 }
 
 @keyframes slide {
-    0% { transform: translateX(0); }         /* Primer testimonio */
-    33.33% { transform: translateX(-33.33%); } /* Segundo testimonio */
-    66.66% { transform: translateX(-66.66%); } /* Tercer testimonio */
-    100% { transform: translateX(-66.66%); }   /* Se queda en el tercero antes de reiniciar */
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-33.33%); }
+    66.66% { transform: translateX(-66.66%); }
+    100% { transform: translateX(-66.66%); }
 }
 
 /* Pie de página */
@@ -333,4 +340,199 @@ footer {
 a:focus, button:focus, input:focus {
     outline: 2px solid var(--color-destacado);
     outline-offset: 2px;
+}
+
+/* Pagina "Clases" */
+/* Filtros */
+.filtros {
+    max-width: 1200px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.filtros h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.filtro-opciones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtro-opciones input[type="radio"] {
+    display: none;
+}
+
+.filtro-opciones label {
+    padding: 0.5rem 1rem;
+    background: var(--color-secundario);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.filtro-opciones input[type="radio"]:checked + label {
+    background: var(--color-destacado);
+    color: var(--color-blanco);
+}
+
+/* Tarjetas de clases */
+.clases-destacadas {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.clases-destacadas h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.tarjeta-clase {
+    position: relative;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-clase img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-clase .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-clase:hover img {
+    transform: scale(1.1);
+}
+
+.tarjeta-clase:hover .overlay {
+    opacity: 1;
+}
+
+/* Filtrado para tarjetas */
+#musculacion:checked ~ .clases-destacadas .tarjeta-clase:not(.musculacion),
+#crossfit:checked ~ .clases-destacadas .tarjeta-clase:not(.crossfit),
+#yoga:checked ~ .clases-destacadas .tarjeta-clase:not(.yoga),
+#spinning:checked ~ .clases-destacadas .tarjeta-clase:not(.spinning) {
+    display: none;
+}
+
+/* Galería masonry */
+/* Estilos generales para la sección de la galería */
+.galeria-masonry {
+    padding: 7px;
+    text-align: center;
+}
+
+/* Contenedor del grid masonry */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduce el valor mínimo */
+    grid-gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Estilos para cada imagen dentro del grid */
+.masonry-grid img {
+    width: 100%;
+    height: auto;
+    display: block; /* Evita espacio extra debajo de la imagen */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra suave */
+}
+
+/* Tabla de horarios */
+.horarios {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.horarios h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.horarios table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-secundario);
+}
+
+.horarios th, .horarios td {
+    padding: 1rem;
+    border: 1px solid var(--color-primario);
+}
+
+.horarios th {
+    background: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* Responsividad de la tabla */
+@media (max-width: 768px) {
+    .horarios table, .horarios thead, .horarios tbody, .horarios th, .horarios td, .horarios tr {
+        display: block;
+    }
+    
+    .horarios thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .horarios tr {
+        margin-bottom: 1rem;
+    }
+    
+    .horarios td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    .horarios td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        padding-right: 1rem;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    .horarios td[data-label="Día"] {
+        font-weight: bold;
+        background: var(--color-primario);
+        color: var(--color-blanco);
+    }
 }
