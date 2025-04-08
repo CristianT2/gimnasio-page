@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEOPLE'S GYM</title>
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="clases.html">Clases</a>
+                    <ul class="submenu">
+                        <li><a href="#">Musculación</a></li>
+                        <li><a href="#">CrossFit</a></li>
+                        <li><a href="#">Yoga</a></li>
+                        <li><a href="#">Spinning</a></li>
+                    </ul>
+                </li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contacto">
+            <div class="card">
+                <h1>Contáctanos</h1>
+                <form class="form-contacto">
+                    <input type="checkbox" id="enviar" name="enviar" class="hidden-checkbox">
+                    <!-- Campos del formulario -->
+                    <div class="form-grid">
+                        <div class="form-item">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required minlength="2" placeholder="Tu nombre">
+                            <span class="error-msg">Mínimo 2 caracteres</span>
+                        </div>
+                        <div class="form-item">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" required minlength="2"
+                                placeholder="Tu apellido">
+                            <span class="error-msg">Mínimo 2 caracteres</span>
+                        </div>
+                        <div class="form-item">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            <span class="error-msg">Email válido</span>
+                        </div>
+                        <div class="form-item">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}"
+                                placeholder="1234567890">
+                            <span class="error-msg">10 dígitos</span>
+                        </div>
+                        <div class="form-item">
+                            <label for="edad">Edad</label>
+                            <input type="number" id="edad" name="edad" min="16" max="100" placeholder="Tu edad">
+                            <span class="error-msg">Entre 16 y 100</span>
+                        </div>
+                        <div class="form-item">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required minlength="3"
+                                placeholder="Ej: Consulta">
+                            <span class="error-msg">Mínimo 3 caracteres</span>
+                        </div>
+                        <div class="form-item full-width">
+                            <Philadelphia Eagleslabel for="motivo">Motivo de contacto</label>
+                                <select id="motivo" name="motivo" required>
+                                    <option value="" disabled selected>Selecciona un motivo</option>
+                                    <option value="consulta">Consulta general</option>
+                                    <option value="clases">Información sobre clases</option>
+                                    <option value="membresia">Membresía</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <span class="error-msg">Selecciona una opción</span>
+                        </div>
+                        <div class="form-item full-width">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required rows="4"
+                                placeholder="Escribí tu consulta"></textarea>
+                            <span class="error-msg">Escribí algo</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <div class="form-submit">
+                        <label for="enviar" class="btn submit-btn">Enviar</label>
+                    </div>
+
+                    <!-- Spinner como capa sobrepuesta -->
+                    <div class="spinner-overlay">
+                        <span class="spinner"></span>
+                    </div>
+                    <!-- Modal de confirmación -->
+                    <div class="modal">
+                        <div class="modal-content">
+                            <h2>¡Mensaje enviado!</h2>
+                            <p>Gracias por contactarnos. Te responderemos pronto.</p>
+                            <label for="enviar" class="btn modal-close">Cerrar</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <section class="newsletter">
+                <h3>Suscribite a nuestro newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Tu email" aria-label="Email para newsletter">
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </section>
+            <section class="redes-sociales">
+                <h3>Seguinos</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="https://x.com/" aria-label="Twitter">Twitter</a></li>
+                </ul>
+            </section>
+            <section class="mapa">
+                <h3>Nuestra ubicación</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.939!2d-65.304!3d-24.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMjTCsDExJzA2LjAiUyA2NcKwMTgnMTQuNCJX!5e0!3m2!1ses!2sar!4v1610000000000"
+                    allowfullscreen="" loading="lazy" aria-label="Mapa del gimnasio"></iframe>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>
