@@ -933,3 +933,205 @@ a:focus, button:focus, input:focus {
         margin: 0 1rem;
     }
 }
+
+/* Estilos para la pagina de precios*/
+/* Precios */
+.precios {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.precios h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primario);
+}
+
+/* Toggle Mensual/Anual */
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    background: #ecf0f1;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 2rem; /* Reemplaza el margen de .toggle-container */
+}
+
+.toggle-option {
+    display: inline-block;
+    width: 50%;
+    line-height: 40px;
+    font-weight: bold;
+    color: #7f8c8d;
+    transition: color 0.3s ease;
+}
+
+.toggle-option.mensual {
+    float: left;
+}
+
+.toggle-option.anual {
+    float: right;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 96px;
+    height: 32px;
+    background: var(--color-destacado);
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+#toggle-plan:checked + .toggle-label .toggle-slider {
+    transform: translateX(100px);
+}
+
+#toggle-plan:checked + .toggle-label .mensual {
+    color: #7f8c8d;
+}
+
+#toggle-plan:checked + .toggle-label .anual {
+    color: var(--color-blanco);
+}
+
+#toggle-plan:not(:checked) + .toggle-label .mensual {
+    color: var(--color-blanco);
+}
+
+#toggle-plan:not(:checked) + .toggle-label .anual {
+    color: #7f8c8d;
+}
+
+/* Tabla de precios */
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: var(--color-blanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px;
+}
+
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.plan h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primario);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--color-destacado);
+}
+
+.price .monthly {
+    display: inline;
+}
+
+.price .yearly {
+    display: none;
+}
+
+#toggle-plan:checked ~ .pricing-table .price .monthly {
+    display: none;
+}
+
+#toggle-plan:checked ~ .pricing-table .price .yearly {
+    display: inline;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.plan li {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+}
+
+.plan .btn {
+    font-weight: bold;
+    font-size: medium;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background: var(--color-destacado);
+    color: var(--color-blanco);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    width: 50%;
+    margin: auto;
+}
+
+.plan .btn:hover {
+    background: #c0392b;
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 150px;
+    background: #2c3e50;
+    color: var(--color-blanco);
+    text-align: center;
+    border-radius: 5px;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .pricing-table {
+        flex-direction: column;
+        align-items: center;
+    }
+    .plan {
+        width: 100%;
+        max-width: 350px;
+    }
+}

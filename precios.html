@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEOPLE'S GYM</title>
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="clases.html">Clases</a>
+                    <ul class="submenu">
+                        <li><a href="#">Musculación</a></li>
+                        <li><a href="#">CrossFit</a></li>
+                        <li><a href="#">Yoga</a></li>
+                        <li><a href="#">Spinning</a></li>
+                    </ul>
+                </li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="precios">
+            <h1>Nuestros Planes</h1>
+            <!-- Toggle Mensual/Anual -->
+            <input type="checkbox" id="toggle-plan" class="hidden-checkbox">
+            <label for="toggle-plan" class="toggle-label">
+                <span class="toggle-option mensual">Mensual</span>
+                <span class="toggle-option anual">Anual</span>
+                <span class="toggle-slider"></span>
+            </label>
+
+            <!-- Tabla de precios -->
+            <div class="pricing-table">
+                <div class="plan">
+                    <h2>Básico</h2>
+                    <div class="price">
+                        <span class="monthly">$35.000</span>
+                        <span class="yearly">$350.000</span>
+                    </div>
+                    <ul>
+                        <li>Acceso al gimnasio</li>
+                        <li class="tooltip">
+                            Clases grupales limitadas
+                            <span class="tooltip-text">Máximo 2 por semana</span>
+                        </li>
+                        <li>Lockers</li>
+                    </ul>
+                    <button class="btn">Elegir</button>
+                </div>
+                <div class="plan">
+                    <h2>Estándar</h2>
+                    <div class="price">
+                        <span class="monthly">$45.000</span>
+                        <span class="yearly">$450.000</span>
+                    </div>
+                    <ul>
+                        <li>Acceso al gimnasio</li>
+                        <li>Clases grupales ilimitadas</li>
+                        <li class="tooltip">
+                            Entrenador personal
+                            <span class="tooltip-text">1 sesión por mes</span>
+                        </li>
+                        <li>Lockers</li>
+                    </ul>
+                    <button class="btn">Elegir</button>
+                </div>
+                <div class="plan">
+                    <h2>Premium</h2>
+                    <div class="price">
+                        <span class="monthly">$50.000</span>
+                        <span class="yearly">$500.000</span>
+                    </div>
+                    <ul>
+                        <li>Acceso al gimnasio</li>
+                        <li>Clases grupales ilimitadas</li>
+                        <li class="tooltip">
+                            Entrenador personal
+                            <span class="tooltip-text">2 sesiones por semana</span>
+                        </li>
+                        <li>Lockers</li>
+                        <li class="tooltip">
+                            Nutricionista
+                            <span class="tooltip-text">Plan mensual incluido</span>
+                        </li>
+                    </ul>
+                    <button class="btn">Elegir</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <section class="newsletter">
+                <h3>Suscribite a nuestro newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Tu email" aria-label="Email para newsletter">
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </section>
+            <section class="redes-sociales">
+                <h3>Seguinos</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="https://x.com/" aria-label="Twitter">Twitter</a></li>
+                </ul>
+            </section>
+            <section class="mapa">
+                <h3>Nuestra ubicación</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.939!2d-65.304!3d-24.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMjTCsDExJzA2LjAiUyA2NcKwMTgnMTQuNCJX!5e0!3m2!1ses!2sar!4v1610000000000" allowfullscreen="" loading="lazy" aria-label="Mapa del gimnasio"></iframe>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
