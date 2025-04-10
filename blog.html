@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +28,15 @@
                 <li><a href="precios.html">Precios</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="blog.html">Blog</a></li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider">
+                            <span class="icon-sun">☀️</span>
+                            <span class="icon-moon">🌙</span>
+                        </span>
+                    </label>
+                </li>
             </ul>
         </nav>
     </header>
@@ -286,9 +295,21 @@
         </div>
     </footer>
 
-    <!-- JavaScript para Scroll Reveal y Filtros -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Modo Oscuro con switch
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', currentTheme);
+            themeToggle.checked = currentTheme === 'dark';
+    
+            themeToggle.addEventListener('change', () => {
+                const newTheme = themeToggle.checked ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+    
             // Scroll Reveal
             const posts = document.querySelectorAll('.post');
             const observer = new IntersectionObserver((entries, observer) => {
@@ -300,38 +321,29 @@
                 });
             }, { threshold: 0.1 });
             posts.forEach(post => observer.observe(post));
-
-            // Filtros con JS
+    
+            // Filtros
             const filterButtons = document.querySelectorAll('.filter-btn');
             const allPosts = document.querySelectorAll('.post');
-
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const filter = button.getAttribute('data-filter');
-
-                    // Remover clase 'active' de todos los botones
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Agregar 'active' al botón clicado
                     button.classList.add('active');
-
-                    // Filtrar artículos
                     allPosts.forEach(post => {
                         const category = post.getAttribute('data-category');
                         if (filter === 'all' || category === filter) {
                             post.style.display = 'block';
-                            // Re-observar para Scroll Reveal
                             if (!post.classList.contains('visible')) {
                                 observer.observe(post);
                             }
                         } else {
                             post.style.display = 'none';
-                            post.classList.remove('visible'); // Resetear visibilidad
+                            post.classList.remove('visible');
                         }
                     });
                 });
             });
-
-            // Activar "Todos" por defecto
             document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
         });
     </script>

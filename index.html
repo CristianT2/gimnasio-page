@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,80 +28,91 @@
                 <li><a href="precios.html">Precios</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="blog.html">Blog</a></li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider">
+                            <span class="icon-sun">☀️</span>
+                            <span class="icon-moon">🌙</span>
+                        </span>
+                    </label>
+                </li>
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <iframe 
-            src="https://www.youtube.com/embed/40mFq3HDQso?autoplay=1&mute=1&loop=1&controls=0&playlist=40mFq3HDQso" 
-            frameborder="0" 
-            allow="autoplay; encrypted-media" 
-            allowfullscreen 
-            aria-label="Video motivacional de fondo">
-        </iframe>
-        <div class="hero-overlay">
-            <h1>Bienvenidos al Gimnasio</h1>
-            <p>Transformá tu cuerpo y tu mente con nosotros</p>
-            <a href="clases.html" class="btn">Ver Clases</a>
-        </div>
-    </section>
-    <section class="clases-destacadas">
-        <h2>Clases Destacadas</h2>
-        <div class="tarjetas">
-            <article class="tarjeta">
-                <img src="assets/img/musculacion.webp" alt="Musculación">
-                <h3>Musculación</h3>
-                <p>Fuerza y resistencia en cada sesión.</p>
-            </article>
-            <article class="tarjeta">
-                <img src="assets/img/crossfit.webp" alt="CrossFit">
-                <h3>CrossFit</h3>
-                <p>Entrenamiento funcional de alta intensidad.</p>
-            </article>
-            <article class="tarjeta">
-                <img src="assets/img/yoga.avif" alt="Yoga">
-                <h3>Yoga</h3>
-                <p>Equilibrio y bienestar para cuerpo y mente.</p>
-            </article>
-        </div>
-    </section>
-    <section class="contador">
-        <h2>Nuestros Números</h2>
-        <div class="contador-items">
-            <div class="item">
-                <span class="numero">500+</span>
-                <p>Socios satisfechos</p>
+    <main>
+        <section class="hero">
+            <iframe 
+                src="https://www.youtube.com/embed/40mFq3HDQso?autoplay=1&mute=1&loop=1&controls=0&playlist=40mFq3HDQso" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen 
+                aria-label="Video motivacional de fondo">
+            </iframe>
+            <div class="hero-overlay">
+                <h1>Bienvenidos a <br> PEOPLE'S GYM</h1>
+                <p>Transformá tu cuerpo y tu mente con nosotros</p>
+                <a href="clases.html" class="btn">Ver Clases</a>
             </div>
-            <div class="item">
-                <span class="numero">20+</span>
-                <p>Entrenadores expertos</p>
+        </section>
+        <section class="clases-destacadas">
+            <h2>Clases Destacadas</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <img src="assets/img/musculacion.webp" alt="Musculación">
+                    <h3>Musculación</h3>
+                    <p>Fuerza y resistencia en cada sesión.</p>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/crossfit.webp" alt="CrossFit">
+                    <h3>CrossFit</h3>
+                    <p>Entrenamiento funcional de alta intensidad.</p>
+                </article>
+                <article class="tarjeta">
+                    <img src="assets/img/yoga.avif" alt="Yoga">
+                    <h3>Yoga</h3>
+                    <p>Equilibrio y bienestar para cuerpo y mente.</p>
+                </article>
             </div>
-            <div class="item">
-                <span class="numero">10+</span>
-                <p>Años de experiencia</p>
+        </section>
+        <section class="contador">
+            <h2>Nuestros Números</h2>
+            <div class="contador-items">
+                <div class="item">
+                    <span class="numero">500+</span>
+                    <p>Socios satisfechos</p>
+                </div>
+                <div class="item">
+                    <span class="numero">20+</span>
+                    <p>Entrenadores expertos</p>
+                </div>
+                <div class="item">
+                    <span class="numero">10+</span>
+                    <p>Años de experiencia</p>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="testimonios">
-        <h2>Qué dicen nuestros socios</h2>
-        <div class="carrusel">
-            <article class="testimonio">
-                <img src="assets/img/persona1.jpg" alt="Foto de Juan Pérez">
-                <p>"El mejor lugar para entrenar, los profesores son geniales."</p>
-                <h3>Juan Pérez</h3>
-            </article>
-            <article class="testimonio">
-                <img src="assets/img/persona2.png" alt="Foto de María Gómez">
-                <p>"Me siento más fuerte y saludable desde que empecé."</p>
-                <h3>María Gómez</h3>
-            </article>
-            <article class="testimonio">
-                <img src="assets/img/persona3.avif" alt="Foto de Ana López">
-                <p>"Las clases de yoga cambiaron mi vida."</p>
-                <h3>Ana López</h3>
-            </article>
-        </div>
-    </section>
+        </section>
+        <section class="testimonios">
+            <h2>Qué dicen nuestros socios</h2>
+            <div class="carrusel">
+                <article class="testimonio">
+                    <img src="assets/img/persona1.jpg" alt="Foto de Juan Pérez">
+                    <p>"El mejor lugar para entrenar, los profesores son geniales."</p>
+                    <h3>Juan Pérez</h3>
+                </article>
+                <article class="testimonio">
+                    <img src="assets/img/persona2.png" alt="Foto de María Gómez">
+                    <p>"Me siento más fuerte y saludable desde que empecé."</p>
+                    <h3>María Gómez</h3>
+                </article>
+                <article class="testimonio">
+                    <img src="assets/img/persona3.avif" alt="Foto de Ana López">
+                    <p>"Las clases de yoga cambiaron mi vida."</p>
+                    <h3>Ana López</h3>
+                </article>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="footer-content">
             <section class="newsletter">
@@ -125,5 +136,23 @@
             </section>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Sincronizar el estado del switch con el tema actual
+            htmlElement.setAttribute('data-theme', currentTheme);
+            themeToggle.checked = currentTheme === 'dark';
+    
+            themeToggle.addEventListener('change', () => {
+                const newTheme = themeToggle.checked ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    </script>
 </body>
 </html>

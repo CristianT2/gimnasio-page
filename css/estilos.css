@@ -1,10 +1,30 @@
-/* Variables CSS para colores y temas (Custom Properties) */
+/* Variables CSS para colores y temas */
 :root {
+    /* Modo Claro */
     --color-primario: #222222;    /* Fondo oscuro */
     --color-secundario: #ecf0f1;  /* Fondo claro */
-    --color-destacado: #169976;   /* Rojo para énfasis */
+    --color-destacado: #169976;   /* Verde para énfasis */
     --color-texto: #333;          /* Texto principal */
     --color-blanco: #fff;         /* Blanco */
+    --background: var(--color-blanco);
+    --card-bg: var(--color-secundario);
+    --shadow: rgba(0, 0, 0, 0.1);
+    --comment-bg: #f9f9f9;
+    --filter-bg: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    /* Modo Oscuro */
+    --color-primario: #169976;    /* Verde como principal */
+    --color-secundario: #333;     /* Fondo oscuro secundario */
+    --color-destacado: #ecf0f1;   /* Claro para énfasis */
+    --color-texto: #ecf0f1;       /* Texto claro */
+    --color-blanco: #000000;      /* Negro puro */
+    --background: var(--color-blanco);
+    --card-bg: #2c2c2c;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --comment-bg: #3a3a3a;
+    --filter-bg: #444444;
 }
 
 /* Estilos generales con Box Model */
@@ -15,9 +35,11 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background: var(--background);
     color: var(--color-texto);
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Encabezado y Mega-menú */
@@ -106,7 +128,7 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--color-blanco);
+    color: var(--color-destacado);
     background: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     display: flex;
@@ -118,6 +140,7 @@ nav {
 .hero h1 {
     font-size: 3rem;
     animation: fadeIn 2s ease-in;
+    color: var(--color-destacado);
 }
 
 .hero p {
@@ -353,6 +376,7 @@ a:focus, button:focus, input:focus {
 .filtros h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--color-primario);
 }
 
 .filtro-opciones {
@@ -368,15 +392,22 @@ a:focus, button:focus, input:focus {
 
 .filtro-opciones label {
     padding: 0.5rem 1rem;
-    background: var(--color-secundario);
+    background: var(--color-secundario); /* #ecf0f1 en claro, #333 en oscuro */
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
 }
 
 .filtro-opciones input[type="radio"]:checked + label {
-    background: var(--color-destacado);
-    color: var(--color-blanco);
+    background: var(--color-destacado); /* #169976 en claro, #ecf0f1 en oscuro */
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
+}
+
+/* Ajuste para modo oscuro */
+[data-theme="dark"] .filtro-opciones input[type="radio"]:checked + label {
+    background: #169976; /* Verde en modo oscuro */
+    color: #000000; /* Negro para contraste */
 }
 
 /* Tarjetas de clases */
@@ -389,6 +420,7 @@ a:focus, button:focus, input:focus {
 .clases-destacadas h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: var(--color-primario);
 }
 
 .tarjetas {
@@ -403,7 +435,7 @@ a:focus, button:focus, input:focus {
     width: 250px;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow);
 }
 
 .tarjeta-clase img {
@@ -419,7 +451,7 @@ a:focus, button:focus, input:focus {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    color: var(--color-blanco);
+    color: #fff; /* Texto blanco fijo para contraste */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -445,29 +477,26 @@ a:focus, button:focus, input:focus {
 }
 
 /* Galería masonry */
-/* Estilos generales para la sección de la galería */
 .galeria-masonry {
     padding: 7px;
     text-align: center;
 }
 
-/* Contenedor del grid masonry */
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduce el valor mínimo */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 10px;
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
 }
 
-/* Estilos para cada imagen dentro del grid */
 .masonry-grid img {
     width: 100%;
     height: auto;
-    display: block; /* Evita espacio extra debajo de la imagen */
-    border-radius: 5px; /* Opcional: bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra suave */
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow);
 }
 
 /* Tabla de horarios */
@@ -480,27 +509,35 @@ a:focus, button:focus, input:focus {
 .horarios h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: var(--color-primario);
 }
 
 .horarios table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--color-secundario);
+    background: var(--card-bg); /* #ecf0f1 en claro, #2c2c2c en oscuro */
 }
 
-.horarios th, .horarios td {
+.horarios th,
+.horarios td {
     padding: 1rem;
     border: 1px solid var(--color-primario);
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
 }
 
 .horarios th {
-    background: var(--color-primario);
-    color: var(--color-blanco);
+    background: var(--color-primario); /* #222222 en claro, #169976 en oscuro */
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
 }
 
 /* Responsividad de la tabla */
 @media (max-width: 768px) {
-    .horarios table, .horarios thead, .horarios tbody, .horarios th, .horarios td, .horarios tr {
+    .horarios table,
+    .horarios thead,
+    .horarios tbody,
+    .horarios th,
+    .horarios td,
+    .horarios tr {
         display: block;
     }
     
@@ -537,11 +574,12 @@ a:focus, button:focus, input:focus {
     }
 }
 
-/* Estilos para pagina entrenadores*/
+/* Estilos para página entrenadores */
 /* Estilos generales de la sección */
 .entrenadores {
     padding: 40px 20px;
     text-align: center;
+    background: var(--background); /* Fondo general de la página */
 }
 
 .contenedor-entrenadores {
@@ -554,12 +592,13 @@ a:focus, button:focus, input:focus {
 
 /* Estilos de la tarjeta del entrenador */
 .tarjeta-entrenador {
-    background-color: #f9f9f9;
+    background-color: var(--card-bg); /* Fondo base de la tarjeta */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow);
     width: 300px;
-    height: 400px; /* Altura inicial para contener ambas caras */
-    perspective: 1000px; /* Necesario para el efecto flip */
+    height: 400px;
+    perspective: 1000px;
+    position: relative; /* Añadido para posicionar las caras */
 }
 
 /* Estilos de las caras de la tarjeta */
@@ -567,7 +606,7 @@ a:focus, button:focus, input:focus {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta la cara trasera cuando está de frente */
+    backface-visibility: hidden;
     border-radius: 10px;
     transition: transform 0.8s ease-in-out;
     display: flex;
@@ -577,14 +616,14 @@ a:focus, button:focus, input:focus {
 }
 
 .tarjeta-frontal {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--background); /* Blanco en claro, negro en oscuro */
+    color: var(--color-texto);
 }
 
 .tarjeta-trasera {
-    background-color: var(--color-destacado);
-    color: #fff;
-    transform: rotateY(180deg); /* Inicialmente la cara trasera está rotada */
+    background-color: var(--color-destacado); /* Verde en claro, blanco claro en oscuro */
+    color: var(--color-blanco);
+    transform: rotateY(180deg);
     padding: 20px;
     text-align: center;
 }
@@ -605,16 +644,17 @@ a:focus, button:focus, input:focus {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px var(--shadow);
 }
 
 .tarjeta-frontal h3 {
     margin-bottom: 5px;
+    color: var(--color-primario);
 }
 
 .tarjeta-frontal p {
     font-size: 0.9em;
-    color: #777;
+    color: var(--color-texto);
 }
 
 /* Estilos de la cara trasera */
@@ -640,28 +680,28 @@ a:focus, button:focus, input:focus {
     display: block;
     margin-bottom: 5px;
     font-size: 0.95em;
-    color: #fff;
+    color: var(--color-blanco);
     text-align: left;
 }
 
 .barra-habilidad {
-    background-color: #ddd;
+    background-color: var(--color-secundario); /* Fondo de la barra */
     border-radius: 5px;
     height: 10px;
     overflow: hidden;
 }
 
 .barra-habilidad .progreso {
-    background-color: #fff;
+    background-color: var(--background); /* Blanco en claro, negro en oscuro */
     height: 100%;
     border-radius: 5px;
-    width: 0%; /* Inicialmente sin ancho */
-    transition: width 1s ease-in-out; /* Animación de la barra */
+    width: 0%;
+    transition: width 1s ease-in-out;
 }
 
 /* Animación de la barra al hacer hover en la tarjeta */
 .tarjeta-entrenador:hover .barra-habilidad .progreso {
-    width: var(--porcentaje); /* Usamos la variable CSS */
+    width: var(--porcentaje);
 }
 
 /* Establecemos la variable CSS dinámicamente */
@@ -689,7 +729,7 @@ a:focus, button:focus, input:focus {
     --porcentaje: 98%;
 }
 
-/* Estilos del rating con estrellas animadas (CSS-only) */
+/* Estilos del rating con estrellas animadas */
 .rating {
     display: flex;
     justify-content: center;
@@ -700,9 +740,9 @@ a:focus, button:focus, input:focus {
 .estrella {
     width: 25px;
     height: 25px;
-    background-color: #ccc;
-    -webkit-mask: url('../assets/svg/star_77949.svg') center/contain no-repeat; /* Ajusta la ruta si es necesario */
-    mask: url('../assets/svg/star_77949.svg') center/contain no-repeat; /* Ajusta la ruta si es necesario */
+    background-color: var(--color-texto); /* Gris en claro, blanco en oscuro */
+    -webkit-mask: url('../assets/svg/star_77949.svg') center/contain no-repeat;
+    mask: url('../assets/svg/star_77949.svg') center/contain no-repeat;
     margin: 0 5px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
@@ -724,16 +764,17 @@ a:focus, button:focus, input:focus {
     margin: 2rem auto;
     padding: 1rem;
     text-align: center;
+    background: var(--background); /* Fondo general */
 }
 
 .card {
-    background: var(--color-blanco);
+    background: var(--card-bg); /* #ecf0f1 en claro, #2c2c2c en oscuro */
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--shadow);
     padding: 2rem;
     max-width: 600px;
     margin: 0 auto;
-    position: relative; /* Para posicionar el spinner y modal */
+    position: relative;
 }
 
 .contacto h1 {
@@ -778,6 +819,8 @@ a:focus, button:focus, input:focus {
     border-radius: 5px;
     font-size: 0.95rem;
     transition: border-color 0.3s ease;
+    background: var(--card-bg); /* Fondo consistente */
+    color: var(--color-texto); /* Texto legible */
 }
 
 .form-item textarea {
@@ -786,8 +829,13 @@ a:focus, button:focus, input:focus {
 
 .form-item select {
     appearance: none;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%232c3e50" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center;
+    background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%232c3e50" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center;
     background-size: 12px;
+}
+
+/* Ajuste para modo oscuro */
+[data-theme="dark"] .form-item select {
+    background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23ecf0f1" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center;
 }
 
 /* Validación en tiempo real */
@@ -828,15 +876,25 @@ a:focus, button:focus, input:focus {
 .submit-btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: var(--color-destacado);
-    color: var(--color-blanco);
+    background: var(--color-destacado); /* #169976 en claro, #ecf0f1 en oscuro */
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
+/* Ajuste para modo oscuro */
+[data-theme="dark"] .submit-btn {
+    background: #169976; /* Verde en modo oscuro */
+    color: #000000; /* Negro para contraste */
+}
+
 .submit-btn:hover {
-    background: #c0392b;
+    background: #c0392b; /* Rojo en ambos modos */
+}
+
+[data-theme="dark"] .submit-btn:hover {
+    background: #e74c3c; /* Rojo más claro en modo oscuro */
 }
 
 /* Spinner como capa sobrepuesta */
@@ -852,17 +910,17 @@ a:focus, button:focus, input:focus {
 
 .form-contacto #enviar:checked ~ .spinner-overlay {
     display: block;
-    animation: fadeOut 0.3s ease 2s forwards; /* Se desvanece después de 2s */
+    animation: fadeOut 0.3s ease 2s forwards;
 }
 
 .spinner {
-    display: block; /* Asegura que se renderice como bloque */
+    display: block;
     width: 65px;
     height: 65px;
-    border: 5px solid var(--color-secundario); /* Borde visible */
-    border-top: 4px solid var(--color-destacado); /* Parte giratoria destacada */
-    border-radius: 50%; /* Forma circular */
-    animation: spin 2s linear forwards; /* Gira por 2 segundos */
+    border: 5px solid var(--color-secundario);
+    border-top: 4px solid var(--color-destacado);
+    border-radius: 50%;
+    animation: spin 2s linear forwards;
 }
 
 /* Modal de confirmación */
@@ -883,16 +941,17 @@ a:focus, button:focus, input:focus {
 .form-contacto #enviar:checked ~ .modal {
     display: flex;
     opacity: 0;
-    animation: showModal 0.3s ease 2.3s forwards; /* Aparece después de 2.3s */
+    animation: showModal 0.3s ease 2.3s forwards;
 }
 
 .modal-content {
-    background: var(--color-blanco);
+    background: var(--card-bg); /* #ecf0f1 en claro, #2c2c2c en oscuro */
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
     max-width: 350px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px var(--shadow);
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
 }
 
 .modal-content p {
@@ -900,19 +959,29 @@ a:focus, button:focus, input:focus {
 }
 
 .modal-close {
-    color: white;
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
     margin-top: 0;
-    background: var(--color-destacado);
+    background: var(--color-destacado); /* #169976 en claro, #ecf0f1 en oscuro */
     padding: 0.6rem 1.2rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
+/* Ajuste para modo oscuro */
+[data-theme="dark"] .modal-close {
+    background: #169976; /* Verde en modo oscuro */
+    color: #000000; /* Negro para contraste */
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background: #1abc9c; /* Verde más claro en hover */
+}
+
 /* Animaciones */
 @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(720deg); } /* Gira 2 vueltas y se detiene */
+    100% { transform: rotate(720deg); }
 }
 
 @keyframes fadeOut {
@@ -934,13 +1003,13 @@ a:focus, button:focus, input:focus {
     }
 }
 
-/* Estilos para la pagina de precios*/
-/* Precios */
+/* Estilos para la página de precios */
 .precios {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 1rem;
     text-align: center;
+    background: var(--background); /* Fondo general de la página */
 }
 
 .precios h1 {
@@ -955,11 +1024,11 @@ a:focus, button:focus, input:focus {
     display: inline-block;
     width: 200px;
     height: 40px;
-    background: #ecf0f1;
+    background: var(--filter-bg); /* #e0e0e0 en claro, #444444 en oscuro */
     border-radius: 20px;
     cursor: pointer;
     overflow: hidden;
-    margin-bottom: 2rem; /* Reemplaza el margen de .toggle-container */
+    margin-bottom: 2rem;
 }
 
 .toggle-option {
@@ -967,7 +1036,7 @@ a:focus, button:focus, input:focus {
     width: 50%;
     line-height: 40px;
     font-weight: bold;
-    color: #7f8c8d;
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
     transition: color 0.3s ease;
 }
 
@@ -985,7 +1054,7 @@ a:focus, button:focus, input:focus {
     left: 4px;
     width: 96px;
     height: 32px;
-    background: var(--color-destacado);
+    background: var(--color-destacado); /* #169976 en claro, #ecf0f1 en oscuro */
     border-radius: 16px;
     transition: transform 0.3s ease;
 }
@@ -995,19 +1064,32 @@ a:focus, button:focus, input:focus {
 }
 
 #toggle-plan:checked + .toggle-label .mensual {
-    color: #7f8c8d;
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
 }
 
 #toggle-plan:checked + .toggle-label .anual {
-    color: var(--color-blanco);
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
 }
 
 #toggle-plan:not(:checked) + .toggle-label .mensual {
-    color: var(--color-blanco);
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
 }
 
 #toggle-plan:not(:checked) + .toggle-label .anual {
-    color: #7f8c8d;
+    color: var(--color-texto); /* #333 en claro, #ecf0f1 en oscuro */
+}
+
+/* Ajuste específico para modo oscuro */
+[data-theme="dark"] .toggle-slider {
+    background: #169976; /* Verde en modo oscuro para contraste */
+}
+
+[data-theme="dark"] #toggle-plan:checked + .toggle-label .anual {
+    color: #000000; /* Negro en modo oscuro para contraste con #ecf0f1 */
+}
+
+[data-theme="dark"] #toggle-plan:not(:checked) + .toggle-label .mensual {
+    color: #000000; /* Negro en modo oscuro para contraste con #ecf0f1 */
 }
 
 /* Tabla de precios */
@@ -1019,9 +1101,9 @@ a:focus, button:focus, input:focus {
 }
 
 .plan {
-    background: var(--color-blanco);
+    background: var(--card-bg); /* #ecf0f1 en claro, #2c2c2c en oscuro */
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--shadow);
     padding: 1.5rem;
     width: 300px;
     text-align: center;
@@ -1034,7 +1116,7 @@ a:focus, button:focus, input:focus {
 
 .plan:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px var(--shadow);
 }
 
 .plan h2 {
@@ -1069,22 +1151,23 @@ a:focus, button:focus, input:focus {
 .plan ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 0 0 1.5rem 0;
+    margin: 0 0 1.5rem 0;
     flex-grow: 1;
 }
 
 .plan li {
     margin: 0.5rem 0;
-    color: #2c3e50;
+    color: var(--color-texto); /* #2c3e50 en claro, #ecf0f1 en oscuro */
 }
 
+/* Botones */
 .plan .btn {
     font-weight: bold;
     font-size: medium;
     display: inline-block;
     padding: 0.8rem 1rem;
-    background: var(--color-destacado);
-    color: var(--color-blanco);
+    background: var(--color-destacado); /* #169976 en claro, #ecf0f1 en oscuro */
+    color: var(--color-blanco); /* #fff en claro, #000000 en oscuro */
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s ease;
@@ -1093,7 +1176,17 @@ a:focus, button:focus, input:focus {
 }
 
 .plan .btn:hover {
-    background: #c0392b;
+    background: #c0392b; /* Rojo en ambos modos */
+}
+
+/* Ajuste para modo oscuro */
+[data-theme="dark"] .plan .btn {
+    background: #169976; /* Verde en modo oscuro */
+    color: #000000; /* Negro para contraste */
+}
+
+[data-theme="dark"] .plan .btn:hover {
+    background: #e74c3c; /* Rojo más claro en modo oscuro */
 }
 
 /* Tooltips */
@@ -1105,7 +1198,7 @@ a:focus, button:focus, input:focus {
 .tooltip .tooltip-text {
     visibility: hidden;
     width: 150px;
-    background: #2c3e50;
+    background: var(--color-primario); /* #222222 en claro, #169976 en oscuro */
     color: var(--color-blanco);
     text-align: center;
     border-radius: 5px;
@@ -1296,4 +1389,88 @@ a:focus, button:focus, input:focus {
     .blog-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Switch para Modo Oscuro */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--filter-bg);
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--color-blanco);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--color-destacado);
+}
+
+input:checked + .slider:before {
+    transform: translateX(36px);
+}
+
+.icon-sun, .icon-moon {
+    font-size: 1.2rem;
+    color: var(--color-texto);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-sun {
+    left: 8px;
+    opacity: 1; /* Visible en modo claro por defecto */
+}
+
+.icon-moon {
+    right: 8px;
+    opacity: 0; /* Oculta en modo claro por defecto */
+}
+
+input:checked + .slider .icon-sun {
+    opacity: 0; /* Oculta en modo oscuro */
+}
+
+input:checked + .slider .icon-moon {
+    opacity: 1; /* Visible en modo oscuro */
+}
+
+input:not(:checked) + .slider .icon-sun {
+    opacity: 1; /* Visible en modo claro */
+}
+
+input:not(:checked) + .slider .icon-moon {
+    opacity: 0; /* Oculta en modo claro */
 }
