@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEOPLE'S GYM</title>
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="clases.html">Clases</a>
+                    <ul class="submenu">
+                        <li><a href="#">Musculación</a></li>
+                        <li><a href="#">CrossFit</a></li>
+                        <li><a href="#">Yoga</a></li>
+                        <li><a href="#">Spinning</a></li>
+                    </ul>
+                </li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="blog">
+            <h1>Blog de Fitness</h1>
+
+            <!-- Filtros de Categorías -->
+            <div class="filter-container">
+                <button class="filter-btn" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="nutricion">Nutrición</button>
+                <button class="filter-btn" data-filter="entrenamiento">Entrenamiento</button>
+                <button class="filter-btn" data-filter="bienestar">Bienestar</button>
+            </div>
+
+            <!-- Artículos -->
+            <div class="blog-grid">
+                <article class="post" data-category="entrenamiento">
+                    <img src="assets/img/train3.jpeg" alt="Entrenamiento">
+                    <h2>5 Ejercicios para Ganar Fuerza</h2>
+                    <p>Descubre los mejores movimientos para fortalecer tu cuerpo...</p>
+                    <div class="tags">
+                        <span class="tag">Fuerza</span>
+                        <span class="tag">Rutina</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Juan:</strong> ¡Excelente artículo!</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="nutricion">
+                    <img src="assets/img/spinning.webp" alt="Nutrición">
+                    <h2>Guía de Proteínas para Principiantes</h2>
+                    <p>Todo lo que necesitas saber sobre las proteínas...</p>
+                    <div class="tags">
+                        <span class="tag">Proteína</span>
+                        <span class="tag">Dieta</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>María:</strong> Muy útil, gracias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="bienestar">
+                    <img src="assets/img/yoga.avif" alt="Bienestar">
+                    <h2>El Poder del Yoga en tu Vida</h2>
+                    <p>Cómo el yoga puede transformar tu bienestar...</p>
+                    <div class="tags">
+                        <span class="tag">Yoga</span>
+                        <span class="tag">Relax</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Lucía:</strong> Me encanta el yoga.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="entrenamiento">
+                    <img src="assets/img/crossfit2.jpg" alt="Entrenamiento">
+                    <h2>Cómo Mejorar tu Resistencia</h2>
+                    <p>Consejos prácticos para entrenar tu resistencia física...</p>
+                    <div class="tags">
+                        <span class="tag">Resistencia</span>
+                        <span class="tag">Cardio</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Pedro:</strong> ¡Voy a probar esto!</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="nutricion">
+                    <img src="assets/img/train4.jpg" alt="Nutrición">
+                    <h2>Los Mejores Carbohidratos para Energía</h2>
+                    <p>Aprende qué carbohidratos te dan energía sostenida...</p>
+                    <div class="tags">
+                        <span class="tag">Carbohidratos</span>
+                        <span class="tag">Energía</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Ana:</strong> Muy claro, gracias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="bienestar">
+                    <img src="assets/img/musculacion.webp" alt="Bienestar">
+                    <h2>Meditación para Principiantes</h2>
+                    <p>Empieza a meditar con estos simples pasos...</p>
+                    <div class="tags">
+                        <span class="tag">Meditación</span>
+                        <span class="tag">Estrés</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Sofía:</strong> Perfecto para empezar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="post" data-category="entrenamiento">
+                    <img src="assets/img/train3.jpeg" alt="Entrenamiento">
+                    <h2>5 Ejercicios para Ganar Fuerza</h2>
+                    <p>Descubre los mejores movimientos para fortalecer tu cuerpo...</p>
+                    <div class="tags">
+                        <span class="tag">Fuerza</span>
+                        <span class="tag">Rutina</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Juan:</strong> ¡Excelente artículo!</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="nutricion">
+                    <img src="assets/img/spinning.webp" alt="Nutrición">
+                    <h2>Guía de Proteínas para Principiantes</h2>
+                    <p>Todo lo que necesitas saber sobre las proteínas...</p>
+                    <div class="tags">
+                        <span class="tag">Proteína</span>
+                        <span class="tag">Dieta</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>María:</strong> Muy útil, gracias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="bienestar">
+                    <img src="assets/img/yoga.avif" alt="Bienestar">
+                    <h2>El Poder del Yoga en tu Vida</h2>
+                    <p>Cómo el yoga puede transformar tu bienestar...</p>
+                    <div class="tags">
+                        <span class="tag">Yoga</span>
+                        <span class="tag">Relax</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Lucía:</strong> Me encanta el yoga.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="entrenamiento">
+                    <img src="assets/img/crossfit2.jpg" alt="Entrenamiento">
+                    <h2>Cómo Mejorar tu Resistencia</h2>
+                    <p>Consejos prácticos para entrenar tu resistencia física...</p>
+                    <div class="tags">
+                        <span class="tag">Resistencia</span>
+                        <span class="tag">Cardio</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Pedro:</strong> ¡Voy a probar esto!</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="nutricion">
+                    <img src="assets/img/train4.jpg" alt="Nutrición">
+                    <h2>Los Mejores Carbohidratos para Energía</h2>
+                    <p>Aprende qué carbohidratos te dan energía sostenida...</p>
+                    <div class="tags">
+                        <span class="tag">Carbohidratos</span>
+                        <span class="tag">Energía</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Ana:</strong> Muy claro, gracias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-category="bienestar">
+                    <img src="assets/img/musculacion.webp" alt="Bienestar">
+                    <h2>Meditación para Principiantes</h2>
+                    <p>Empieza a meditar con estos simples pasos...</p>
+                    <div class="tags">
+                        <span class="tag">Meditación</span>
+                        <span class="tag">Estrés</span>
+                    </div>
+                    <div class="comments">
+                        <div class="comment">
+                            <span class="avatar"></span>
+                            <div class="comment-content">
+                                <p><strong>Sofía:</strong> Perfecto para empezar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <section class="newsletter">
+                <h3>Suscribite a nuestro newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Tu email" aria-label="Email para newsletter">
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </section>
+            <section class="redes-sociales">
+                <h3>Seguinos</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="https://x.com/" aria-label="Twitter">Twitter</a></li>
+                </ul>
+            </section>
+            <section class="mapa">
+                <h3>Nuestra ubicación</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.939!2d-65.304!3d-24.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2zMjTCsDExJzA2LjAiUyA2NcKwMTgnMTQuNCJX!5e0!3m2!1ses!2sar!4v1610000000000" allowfullscreen="" loading="lazy" aria-label="Mapa del gimnasio"></iframe>
+            </section>
+        </div>
+    </footer>
+
+    <!-- JavaScript para Scroll Reveal y Filtros -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal
+            const posts = document.querySelectorAll('.post');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            posts.forEach(post => observer.observe(post));
+
+            // Filtros con JS
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const allPosts = document.querySelectorAll('.post');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Remover clase 'active' de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Agregar 'active' al botón clicado
+                    button.classList.add('active');
+
+                    // Filtrar artículos
+                    allPosts.forEach(post => {
+                        const category = post.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            post.style.display = 'block';
+                            // Re-observar para Scroll Reveal
+                            if (!post.classList.contains('visible')) {
+                                observer.observe(post);
+                            }
+                        } else {
+                            post.style.display = 'none';
+                            post.classList.remove('visible'); // Resetear visibilidad
+                        }
+                    });
+                });
+            });
+
+            // Activar "Todos" por defecto
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
